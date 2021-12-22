@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EmpruntController!{% endblock %}
+
+{% block body %}
+<main id="main">
+{# {{dump(emprunts)}} #}
+    <h1 class="text-muted text-center py-2">Mon tableau de board</h1>
+    <hr>
+    <section class="container">
+        <h2 class="text-muted text-center">Mes emprunts</h2>
+            <div  class="col-sm-12 col-lg-12 col-xl-12">
+                {% for label, messages in app.flashes %}
+                {% for message in messages %}
+                <div class="alert alert-{{ label }} alert-dismissible fade show text-center" role="alert">
+                {% if label == 'success' %}
+                <span class="alert-inner--icon"><i class="fe fe-thumbs-up"></i></span>
+                {% else %}
+                <span class="alert-inner--icon"><i class="fe fe-thumbs-down"></i></span>
+                {% endif %}
+                <span class="alert-inner--text"><strong>{{ label | title }} : </strong> {{ message | raw }}</span>
+                </div>
+                {% endfor %}
+                {% endfor %}
+            </div>
+            <div class="text-center my-3"><a class="btn btn-dark" href="{{path("ajout_emprunt")}}">Ajouter un emprunt</a></div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Titre du livre</th>
+                <th scope="col">Lecteur</th>
+                <th scope="col">Date d'emprunt</th>
+                <th scope="col">Date de retour</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for emprunt in emprunts %}
+            <tr>
+                <th>{{emprunt.id}}</th>
+                <td>{{emprunt.livre.name}}</td>
+                <td>{{emprunt.user.lastname ~ ' ' ~ emprunt.user.firstname}}</td>
+                <td>{{emprunt.dateemprunt | date('d/M/y')}}</td>
+                <td>{{emprunt.dateretour | date('d/M/y')}}</td>
+                
+                <td></td>
+                <td>
+                    <a href=""><i class="fa fa-trash"></i></a> |  <a href=""><i class="fa fa-edit"></i></a> 
+                </td>
+            </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+</main>
+
+{% endblock %}

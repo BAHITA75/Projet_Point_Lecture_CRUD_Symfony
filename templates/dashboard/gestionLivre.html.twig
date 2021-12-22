@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EmpruntController!{% endblock %}
+
+{% block body %}
+
+<main id="main">
+    <h1 class="text-muted text-center py-2">Mon tableau de board</h1>
+    <hr>
+    <h2 class="text-muted text-center">Mes livres</h2>
+    <div class="text-center my-3"><a class="btn btn-dark" href="{{path('livre')}}">Ajouter un livre</a></div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Auteur</th>
+            <th scope="col">Année d'edition</th>
+            <th scope="col">image</th>
+
+            <th scope="col">emprunt</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for livre in livres %}
+        <tr>
+            <th>{{livre.id}}</th>
+            <td>{{livre.name}}</td>
+            <td>{{livre.auteur}}</td>
+            <td>{{livre.anneeedition}}</td>
+            <td><img class="card-img-top" id="imagelivre" src="{{livre.picture}}" alt="Card image cap"></td>
+            
+            
+            <td></td>
+            <td>
+                <a href="{{path('delete_livre', {'id': livre.id})}}"><i class="fa fa-trash"></i></a> |  <a href="{{path('edit_livre', {'id': livre.id})}}"><i class="fa fa-edit"></i></a> 
+            </td>
+        </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</main>
+
+
+{% endblock %}

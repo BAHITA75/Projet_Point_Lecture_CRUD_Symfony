@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccountController!{% endblock %}
+
+{% block body %}
+<main id="main">
+  <h3 class="text-center py-5">Bienvenue <span class="text-muted">{{app.user.lastname}} {{app.user.firstname }}</span></h3>
+  <hr>
+  <div class="card mt-5" style="width: 18rem;" id="menuAccount">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><a class="card-link" href="">Modifier mon mot de passe</a></li>
+        <li class="list-group-item"><a class="card-link" href="">Mes emprunts</a></li>
+      </ul>
+  </div>
+</main>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SingleLivreController!{% endblock %}
+
+{% block body %}
+<main id="main">
+    <div class="container-fluid">
+        <div class="row py-5 justify-content-evenly align-items-center">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-body text-center">
+                            <img id="imageSingleLivre" src="{{singleLivre.picture}}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-4">
+                <h3 class="text-center">{{singleLivre.name}}</h1>
+                <h5 class="text-center">de {{singleLivre.auteur}}</h2>
+                <h6 class="text-center">Date d'edition: <sapn>{{singleLivre.anneeedition}}</span></h6>
+                <p class="text-center">{{singleLivre.description}}</p> 
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

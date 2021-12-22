@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DashboardController!{% endblock %}
+
+{% block body %}
+<main id="main">
+  <div class="mt-5">
+    <h1 class="text-muted text-center py-5">Mon tableau de board</h1>
+    <hr>
+    <div class="mt-4" id="backOffice">
+        <div class="card m-5"><a href="{{path("gestion_livre")}}">Gestion des livres</a></div>
+        <div class="card m-5"><a href="{{path("gestion_user")}}">Gestion des lecteurs</a></div>
+        <div class="card m-5"><a href="{{path("gestion_emprunt")}}">Gestion des emprunts</a></div>
+    </div>
+  </div>
+</main>
+{% endblock %}
